@@ -62,7 +62,17 @@ downloadTriggers.forEach(button => {
                         button.classList.remove('loading');
                         
                         // Abre o link em uma nova aba (padrão de lojas de apps)
-                        window.open(destinationUrl, '_blank');
+                        const link = document.createElement('a');
+
+link.href = destinationUrl;
+
+link.download = 'Vilataxi.apk';
+
+document.body.appendChild(link);
+
+link.click();
+
+document.body.removeChild(link);
                     }, 200);
                 } else {
                     // Velocidade da simulação do download (aqui leva aprox. 1.6 segundos no total)
